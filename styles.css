@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: #f4f4f4;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.language-selector, .settings {
+    display: flex;
+    align-items: center;
+}
+
+.language-selector label, .settings label {
+    margin-right: 10px;
+}
+
+.language-selector select, .settings input {
+    padding: 5px;
+}
+
+main {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar, .editor, .properties, .output {
+    padding: 10px;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f0f0f0;
+}
+
+.editor {
+    flex: 1;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.canvas {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+.properties {
+    width: 300px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+}
+
+#propertyPanel {
+    padding: 10px;
+}
+
+.output {
+    margin-top: 10px;
+}
+
+#htmlOutput, #htmlInput {
+    width: 100%;
+    height: 100px;
+}
+
+#htmlInput {
+    margin-top: 10px;
+}
+
+button {
+    margin: 5px 0;
+    padding: 5px;
+}

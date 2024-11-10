@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 編輯器</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1 id="headerTitle">HTML 編輯器</h1>
+        <div class="language-selector">
+            <label for="language">語言：</label>
+            <select id="language" onchange="changeLanguage()">
+                <option value="zh-TW">繁體中文</option>
+            </select>
+        </div>
+        <div class="settings">
+            <label for="pageTitle" id="pageTitleLabel">頁面標題：</label>
+            <input type="text" id="pageTitle" placeholder="輸入標題..." oninput="updatePageTitle()">
+        </div>
+    </header>
+    
+    <main>
+        <section class="sidebar">
+            <h2 id="elementsTitle">元素</h2>
+            <button onclick="addElement('h1')" id="addH1">新增 &lt;h1&gt; 標籤</button>
+            <button onclick="addElement('p')" id="addP">新增 &lt;p&gt; 標籤</button>
+            <button onclick="addElement('div')" id="addDiv">新增 &lt;div&gt; 標籤</button>
+            <button onclick="addElement('button')" id="addButton">新增 &lt;button&gt; 標籤</button>
+            <button onclick="addElement('img')" id="addImg">新增 &lt;img&gt; 標籤</button>
+            <button onclick="addElement('a')" id="addA">新增 &lt;a&gt; 標籤</button>
+            <button onclick="showFileInput()">新增圖片</button>
+            <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="addImageFromFile()">
+        </section>
+        
+        <section class="editor">
+            <div id="canvas" class="canvas" onclick="selectElement(event)">
+                <!-- 元素会显示在这里 -->
+            </div>
+        </section>
+
+        <section class="properties">
+            <h2 id="propertiesTitle">屬性</h2>
+            <div id="propertyPanel">
+                <p id="elementType">選擇一個元素以查看其屬性。</p>
+            </div>
+            <button onclick="saveChanges()" id="saveChanges">保存</button>
+            <button onclick="copyElement()" id="copyElement">複製元素</button>
+            <button onclick="deleteElement()" id="deleteElement">刪除元素</button>
+        </section>
+    </main>
+
+    <section class="output">
+        <h2 id="htmlOutputTitle">生成的 HTML</h2>
+        <textarea id="htmlOutput" readonly></textarea>
+        <h2 id="updateContentTitle">更新內容</h2>
+        <textarea id="htmlInput" placeholder="在此輸入 HTML 內容..."></textarea>
+        <button onclick="updateContent()" id="updateContentButton">更新內容</button>
+        <button onclick="downloadHtml()" id="downloadHtmlButton">下載 HTML</button>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
